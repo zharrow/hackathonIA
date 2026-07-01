@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechCorp — Assistant Financier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Barre latérale : configuration + statut serveur -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">₮</div>
+        <div>
+          <div class="brand-name">TechCorp</div>
+          <div class="brand-sub">Assistant Financier</div>
+        </div>
+      </div>
+
+      <div class="status-card" id="statusCard">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Vérification…</span>
+      </div>
+
+      <label class="field">
+        <span>Serveur d'inférence</span>
+        <input type="text" id="serverUrl" value="http://localhost:11434" spellcheck="false" />
+      </label>
+
+      <label class="field">
+        <span>Modèle</span>
+        <select id="modelSelect"></select>
+      </label>
+
+      <label class="field">
+        <span>Température : <b id="tempValue">0.7</b></span>
+        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" />
+      </label>
+
+      <button class="btn-secondary" id="clearBtn">🗑️ Effacer la conversation</button>
+
+      <div class="sidebar-footer">
+        API Ollama · <code>/api/chat</code>
+      </div>
+    </aside>
+
+    <!-- Zone de chat -->
+    <main class="chat">
+      <header class="chat-header">
+        <h1>Assistant Financier</h1>
+        <p>Posez vos questions sur la finance, les investissements, le trading…</p>
+      </header>
+
+      <div class="messages" id="messages"></div>
+
+      <form class="composer" id="composer">
+        <textarea id="input" rows="1" placeholder="Écrivez votre message…  (Entrée pour envoyer, Maj+Entrée pour un saut de ligne)" autocomplete="off"></textarea>
+        <button type="submit" id="sendBtn" title="Envoyer">➤</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
